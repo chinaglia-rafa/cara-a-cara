@@ -11,6 +11,7 @@ import { DarkThemeToggleComponent } from './components/dark-theme-toggle/dark-th
 import { ButtonComponent } from './components/button/button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BackButtonDirective } from './directives/back-button.directive';
+import { ImageDisplayComponent } from './components/image-display/image-display.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BackButtonDirective } from './directives/back-button.directive';
     DarkThemeToggleComponent,
     ButtonComponent,
     BackButtonDirective,
+    ImageDisplayComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

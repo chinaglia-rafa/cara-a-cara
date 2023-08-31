@@ -30,7 +30,6 @@ export class DarkThemeToggleComponent implements OnInit {
 
   loadTheme(): void {
     this.checked = localStorage.getItem('theme') === 'true';
-    console.log(this.checked);
   }
 
   saveTheme(state: boolean): void {

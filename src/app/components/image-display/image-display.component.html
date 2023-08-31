@@ -1,0 +1,12 @@
+<div
+  class="image"
+  [style.width]="width > 0 ? width + 'px' : null"
+  [style.height]="height > 0 ? height + 'px' : null"
+>
+  <img
+    [src]="src"
+    [attr.width]="width > 0 ? width : null"
+    [attr.height]="height > 0 ? height : null"
+    [alt]="label"
+  />
+</div>

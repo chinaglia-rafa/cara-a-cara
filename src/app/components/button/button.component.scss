@@ -1,3 +1,19 @@
+.button.button--primary {
+  --background: var(--md-sys-color-primary);
+  --color: var(--md-sys-color-on-primary);
+  --background-disabled: var(--md-sys-color-surface-variant);
+  --color-disabled: var(--md-sys-color-on-surface-variant);
+  --color-text-disabled: var(--md-sys-color-on-surface);
+}
+
+.button.button--on-primary {
+  --background: var(--md-sys-color-on-primary);
+  --color: var(--md-sys-color-primary);
+  --background-disabled: var(--md-sys-color-on-surface-variant);
+  --color-disabled: var(--md-sys-color-surface-variant);
+  --color-text-disabled: var(--md-sys-color-surface);
+}
+
 .button {
   -webkit-tap-highlight-color: transparent;
   border: none;
@@ -17,21 +33,21 @@
       width: 18px;
       height: 18px;
       margin-left: -8px;
-      fill: var(--md-sys-color-on-primary);
+      fill: var(--color);
     }
   }
 
-  &.button--text {
+  &.button--text, &.button--icon {
     position: relative;
     
     .button__text {
-      color: var(--md-sys-color-primary);
+      color: var(--background);
 
       ::ng-deep svg {
         width: 18px;
         height: 18px;
         margin-left: -8px;
-        fill: var(--md-sys-color-primary);
+        fill: var(--background);
       }
     }
 
@@ -49,30 +65,40 @@
 
     &:hover {
       &::after {
-        background-color: var(--md-sys-color-primary);
+        background-color: var(--background);
         opacity: 0.08;
       }
     }
 
     &:active {
       &::after {
-        background-color: var(--md-sys-color-primary);
+        background-color: var(--background);
         opacity: 0.12;
       }
     }
 
     &[disabled] {
-      color: var(--md-sys-color-on-surface-variant);
-
+      
       .button__text {
+        color: var(--color-text-disabled);
         opacity: 0.38;
 
         ::ng-deep svg {
           width: 18px;
           height: 18px;
           margin-left: -8px;
-          fill: var(--md-sys-color-on-surface-variant);
+          fill: var(--color-text-disabled);
         }
+      }
+    }
+  }
+
+  &.button--icon {
+    .button__text {
+      ::ng-deep svg {
+        width: 24px;
+        height: 24px;
+        margin-left: 0;
       }
     }
   }
@@ -80,8 +106,8 @@
   &.button--filled {
     padding: 10px 24px 10px 24px;
 
-    color: var(--md-sys-color-on-primary);
-    background-color: var(--md-sys-color-primary);
+    color: var(--color);
+    background-color: var(--background);
     transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 
     &:focus {
@@ -97,8 +123,8 @@
     }
 
     &[disabled] {
-      color: var(--md-sys-color-on-surface-variant);
-      background-color: var(--md-sys-color-surface-variant);
+      color: var(--color-disabled);
+      background-color: var(--background-disabled);
       box-shadow: none;
 
       .button__text {
@@ -108,7 +134,7 @@
           width: 18px;
           height: 18px;
           margin-left: -8px;
-          fill: var(--md-sys-color-on-surface-variant);
+          fill: var(--color-disabled);
         }
       }
     }

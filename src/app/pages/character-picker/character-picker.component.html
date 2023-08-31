@@ -1,13 +1,24 @@
-<m3-button backButton>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="24"
-    viewBox="0 -960 960 960"
-    width="24"
-  >
-    <path
-      d="m313-440 196 196q12 12 11.5 28T508-188q-12 11-28 11.5T452-188L188-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l264-264q11-11 27.5-11t28.5 11q12 12 12 28.5T508-715L313-520h447q17 0 28.5 11.5T800-480q0 17-11.5 28.5T760-440H313Z"
-    />
-  </svg>
-  Voltar</m3-button
->
+<div class="actions">
+  <m3-button backButton appearance="icon" color="on-primary">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path
+        d="m313-440 196 196q12 12 11.5 28T508-188q-12 11-28 11.5T452-188L188-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l264-264q11-11 27.5-11t28.5 11q12 12 12 28.5T508-715L313-520h447q17 0 28.5 11.5T800-480q0 17-11.5 28.5T760-440H313Z"
+      />
+    </svg>
+  </m3-button>
+</div>
+
+<h1 class="display-small on-primary-text">Sua personalidade será...</h1>
+
+<div class="flex">
+  <canvas #confetti width="300" height="300"></canvas>
+  <div #containerElement class="flippable" *ngIf="front && back">
+    <div #cardElement class="card" (click)="cancel()">
+      <div class="front" [style.backgroundImage]="front.imagem"></div>
+      <div class="back" [style.backgroundImage]="back.imagem"></div>
+    </div>
+  </div>
+  <h2 #labelElement class="on-primary-text hidden" *ngIf="chosen">
+    {{ chosen.label }}
+  </h2>
+</div>

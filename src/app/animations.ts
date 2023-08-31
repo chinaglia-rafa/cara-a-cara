@@ -39,6 +39,7 @@ export const slideInAnimation = trigger('routeAnimations', [
         left: 0,
         width: '100%',
         opacity: 1.0,
+        overflow: 'hidden',
       }),
     ]),
     query('#expand-to-other-page', [style({ display: 'block' })], {
@@ -71,7 +72,9 @@ export const slideInAnimation = trigger('routeAnimations', [
         transform: 'scale(1.3)',
       }),
     ]),
-    query(':enter', [style({ opacity: 0.0 })], { optional: true }),
+    query(':enter', [style({ overflow: 'hidden', opacity: 0.0 })], {
+      optional: true,
+    }),
     query(':leave', animateChild(), { optional: true }),
     group([
       query(':leave', [animate('300ms ease-out', style({ opacity: 0.0 }))], {
