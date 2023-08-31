@@ -8,18 +8,18 @@
   background-color: transparent;
 
   &:hover {
-    background-color: rgba(50, 50, 50, 0.1);
+    background-color: rgba(249, 168, 37, 0.1);
   }
   &.checked:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(96, 125, 139, 0.4);
   }
 
   .light {
-    fill: #f9a825;
+    fill: rgb(249, 168, 37);
   }
   
   .dark {
-    fill: #607D8B;
+    fill: rgb(96, 125, 139);
   }
   
   .light, .dark {

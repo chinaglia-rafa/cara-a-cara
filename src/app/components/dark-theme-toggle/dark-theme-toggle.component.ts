@@ -11,7 +11,12 @@ export class DarkThemeToggleComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    if (this.checked) this.toggle();
+    this.loadTheme();
+
+    document.documentElement.setAttribute(
+      'data-theme',
+      this.checked ? 'dark' : 'light'
+    );
   }
 
   toggle(): void {
@@ -20,5 +25,15 @@ export class DarkThemeToggleComponent implements OnInit {
       'data-theme',
       this.checked ? 'dark' : 'light'
     );
+    this.saveTheme(this.checked);
+  }
+
+  loadTheme(): void {
+    this.checked = localStorage.getItem('theme') === 'true';
+    console.log(this.checked);
+  }
+
+  saveTheme(state: boolean): void {
+    localStorage.setItem('theme', state ? 'true' : 'false');
   }
 }
