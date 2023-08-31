@@ -1,0 +1,11 @@
+<button
+  [disabled]="disabled"
+  class="button label-large"
+  [class.button--text]="appearance === 'text'"
+  [class.button--filled]="appearance === 'filled'"
+  [class.button--primary]="color === 'primary'"
+>
+  <span class="button__text">
+    <ng-content></ng-content>
+  </span>
+</button>

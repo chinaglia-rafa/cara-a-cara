@@ -8,6 +8,9 @@ import { CharacterPickerComponent } from './pages/character-picker/character-pic
 import { GameComponent } from './pages/game/game.component';
 import { CharacterDetailsComponent } from './pages/character-details/character-details.component';
 import { DarkThemeToggleComponent } from './components/dark-theme-toggle/dark-theme-toggle.component';
+import { ButtonComponent } from './components/button/button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BackButtonDirective } from './directives/back-button.directive';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,10 @@ import { DarkThemeToggleComponent } from './components/dark-theme-toggle/dark-th
     GameComponent,
     CharacterDetailsComponent,
     DarkThemeToggleComponent,
+    ButtonComponent,
+    BackButtonDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

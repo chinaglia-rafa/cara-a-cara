@@ -7,10 +7,22 @@ import { CharacterDetailsComponent } from './pages/character-details/character-d
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
-  { path: 'start', component: StartComponent },
-  { path: 'character-picker', component: CharacterPickerComponent },
-  { path: 'game', component: GameComponent },
-  { path: 'character-details', component: CharacterDetailsComponent },
+  {
+    path: 'start',
+    component: StartComponent,
+    data: { animation: 'start' },
+  },
+  {
+    path: 'character-picker',
+    component: CharacterPickerComponent,
+    data: { animation: 'character-picker' },
+  },
+  { path: 'game', component: GameComponent, data: { animation: 'game' } },
+  {
+    path: 'character-details',
+    component: CharacterDetailsComponent,
+    data: { animation: 'character-details' },
+  },
 ];
 
 @NgModule({

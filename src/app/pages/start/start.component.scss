@@ -1,7 +1,8 @@
 :host {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+  height: 100%;
 }
 
 h1 {
@@ -17,4 +18,16 @@ app-dark-theme-toggle {
   position: absolute;
   top: 16px;
   right: 16px;
+}
+
+.flex {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  &.flex--columns {
+    flex-direction: column;
+  }
 }
