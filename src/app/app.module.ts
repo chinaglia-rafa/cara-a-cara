@@ -7,6 +7,7 @@ import { StartComponent } from './pages/start/start.component';
 import { CharacterPickerComponent } from './pages/character-picker/character-picker.component';
 import { GameComponent } from './pages/game/game.component';
 import { CharacterDetailsComponent } from './pages/character-details/character-details.component';
+import { DarkThemeToggleComponent } from './components/dark-theme-toggle/dark-theme-toggle.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,11 @@ import { CharacterDetailsComponent } from './pages/character-details/character-d
     StartComponent,
     CharacterPickerComponent,
     GameComponent,
-    CharacterDetailsComponent
+    CharacterDetailsComponent,
+    DarkThemeToggleComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
