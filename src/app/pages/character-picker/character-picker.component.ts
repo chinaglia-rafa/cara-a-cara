@@ -80,8 +80,6 @@ export class CharacterPickerComponent implements OnInit {
 
   finish(): void {
     this.chosen = this.front;
-    console.log(this.card.nativeElement.getBoundingClientRect().top);
-    console.log(this.card.nativeElement.getBoundingClientRect().left);
     const confetti_effect = confetti.create(this.confetti.nativeElement);
 
     confetti_effect({

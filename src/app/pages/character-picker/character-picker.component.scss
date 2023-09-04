@@ -6,10 +6,13 @@
   flex-direction: column;
   align-items: center;
   gap: 32px;
+  overflow: hidden;
+  position: relative;
 }
 
 h1 {
   margin: 0 0 0.67em 0;
+  text-align: center;
 }
 
 h2 {
@@ -31,11 +34,12 @@ h2 {
   align-items: center;
   flex-direction: column;
   gap: 1.4em;
+  z-index: 1;
 }
 
 .flippable {
-  width: 280px;
-  height: 370px;
+  width: 230px;
+  height: 280px;
   perspective: 800px;
   box-sizing: border-box;
   position: relative;
@@ -47,6 +51,9 @@ h2 {
     position: relative;
     transform-style: preserve-3d;
     will-change: transform;
+    border-radius: 100px;
+    box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 500ms ease-out;
     
     .front, .back {
       width: 100%;
@@ -69,6 +76,12 @@ h2 {
       transform: rotateY(180deg);
     }
   }
+
+  &.go-up-animation {
+    .card {
+      box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.5);
+    }
+  }
 }
 
 .hidden {
@@ -82,9 +95,11 @@ h2 {
 @keyframes go-up {
   0% {
     top: 50px;
+    transform: scale(1.0);
   }
   100% {
     top: 0px;
+    transform: scale(1.02);
   }
 }
 
@@ -94,4 +109,15 @@ canvas {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
+}
+
+.bg-blob {
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  z-index: 0;
+  width: 105%;
+  #path {
+    fill: var(--md-ref-palette-primary30);
+  }
 }
