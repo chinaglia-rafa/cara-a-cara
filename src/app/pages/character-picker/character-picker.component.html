@@ -14,15 +14,29 @@
 
 <div class="flex">
   <canvas #confetti width="600" height="700"></canvas>
-  <div #containerElement class="flippable" *ngIf="front && back">
+  <div style="width: 1px; height: 286px"></div>
+  <div
+    #containerElement
+    id="transition-target"
+    class="flippable"
+    *ngIf="front && back"
+  >
     <div #cardElement class="card" (click)="cancel()">
       <div class="front" [style.backgroundImage]="front.imagem"></div>
       <div class="back" [style.backgroundImage]="back.imagem"></div>
     </div>
   </div>
-  <h2 #labelElement class="on-primary-text hidden" *ngIf="chosen">
-    {{ chosen.label }}
+  <h2 #labelElement class="on-primary-text hidden">
+    {{ chosen ? chosen.label : "" }}
   </h2>
+  <m3-button
+    appearance="filled"
+    color="primary"
+    class="chosen"
+    [class.hidden]="!chosen"
+    [routerLink]="['/', 'game']"
+    >{{ "character-picker.continue" | translate }}</m3-button
+  >
 </div>
 <svg class="bg-blob" viewBox="0 0 600 599" xmlns="http://www.w3.org/2000/svg">
   <g>

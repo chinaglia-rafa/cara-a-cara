@@ -79,16 +79,19 @@ export class CharacterPickerComponent implements OnInit {
   }
 
   finish(): void {
-    this.chosen = this.front;
     const confetti_effect = confetti.create(this.confetti.nativeElement);
 
     confetti_effect({
       shapes: ['square'],
       particleCount: 200,
       startVelocity: 30,
+      ticks: 2,
       spread: 120,
     })?.then(() => {
+      this.chosen = this.front;
+      this.characterService.setChosenCharacter(this.chosen);
       this.container.nativeElement.classList.add('go-up-animation');
+      console.log(this.label);
       this.label.nativeElement.classList.remove('hidden');
     });
   }

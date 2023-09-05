@@ -10,7 +10,10 @@ export interface Character {
   providedIn: 'root',
 })
 export class CharactersService {
-  characters: Character[] = [
+  /** Personagem sorteado para o jogador */
+  private chosenCharacter: Character;
+  /** Lista de personalidades no jogo */
+  private characters: Character[] = [
     {
       imagem:
         'url(https://conteudo.imguol.com.br/c/esporte/41/2021/07/27/marta-disputa-as-olimpiadas-de-toquio-pela-selecao-brasileira-1627417009042_v2_450x600.jpg)',
@@ -76,5 +79,13 @@ export class CharactersService {
 
   getRandomCharacter(): Character {
     return this.characters[Math.floor(Math.random() * this.characters.length)];
+  }
+
+  setChosenCharacter(c: Character): void {
+    this.chosenCharacter = c;
+  }
+
+  getChosenCharacter(): Character {
+    return this.chosenCharacter;
   }
 }
