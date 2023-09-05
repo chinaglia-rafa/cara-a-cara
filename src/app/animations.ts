@@ -56,7 +56,7 @@ export const slideInAnimation = trigger('routeAnimations', [
       query(':leave', [animate('300ms ease-out', style({ opacity: 0.0 }))], {
         optional: true,
       }),
-      query(':enter', [animate('300ms ease-out', style({ opacity: 1.0 }))], {
+      query(':enter', [animate('100ms ease-out', style({ opacity: 1.0 }))], {
         optional: true,
       }),
     ]),
