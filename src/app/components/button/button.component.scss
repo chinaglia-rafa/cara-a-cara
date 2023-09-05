@@ -14,6 +14,30 @@
   --color-text-disabled: var(--md-sys-color-surface);
 }
 
+.button.button--primary-container {
+  --background: var(--md-sys-color-primary-container);
+  --color: var(--md-sys-color-on-primary-container);
+  --background-disabled: var(--md-sys-color-on-surface-variant);
+  --color-disabled: var(--md-sys-color-surface-variant);
+  --color-text-disabled: var(--md-sys-color-surface);
+}
+
+.button.button--on-primary-container {
+  --background: var(--md-sys-color-on-primary-container);
+  --color: var(--md-sys-color-primary-container);
+  --background-disabled: var(--md-sys-color-on-surface-variant);
+  --color-disabled: var(--md-sys-color-surface-variant);
+  --color-text-disabled: var(--md-sys-color-surface);
+}
+
+.button.button--on-surface-variant {
+  --background: var(--md-sys-color-on-surface-variant);
+  --color: var(--md-sys-color-surface-variant);
+  --background-disabled: var(--md-sys-color-on-surface-variant);
+  --color-disabled: var(--md-sys-color-surface-variant);
+  --color-text-disabled: var(--md-sys-color-surface);
+}
+
 .button {
   -webkit-tap-highlight-color: transparent;
   border: none;

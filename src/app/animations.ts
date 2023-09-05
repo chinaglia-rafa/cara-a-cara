@@ -42,8 +42,8 @@ export const slideInAnimation = trigger('routeAnimations', [
             width: '100px',
             height: '121px',
             'border-radius': '40px',
-            bottom: '16px',
-            right: '16px',
+            bottom: '24px',
+            right: '24px',
             'box-shadow': '0px 0px 6px -1px rgba(0, 0, 0, 0.3)',
           })
         ),
@@ -61,57 +61,6 @@ export const slideInAnimation = trigger('routeAnimations', [
       }),
     ]),
   ]),
-  // transition('character-picker => game', [
-  //   style({ position: 'absolute' }),
-  //   query(':enter, :leave', [
-  //     style({
-  //       position: 'absolute',
-  //       top: 0,
-  //       left: 0,
-  //       width: '100%',
-  //       height: '100%',
-  //       opacity: 1.0,
-  //       'z-index': 2,
-  //     }),
-  //   ]),
-  //   // query(
-  //   //   '#transition-target',
-  //   //   [style({ bottom: 'calc(100vh - calc(161px + 285px))', 'z-index': 3 })],
-  //   //   {
-  //   //     optional: true,
-  //   //   }
-  //   // ),
-  //   query(':enter', [style({ opacity: 0.0, 'z-index': 1 })], {
-  //     optional: true,
-  //   }),
-  //   query(':leave', animateChild(), { optional: true }),
-  //   // query(
-  //   //   '#transition-target',
-  //   //   [
-  //   //     animate(
-  //   //       '700ms ease-out',
-  //   //       style({
-  //   //         width: '100px',
-  //   //         height: '121px',
-  //   //         'border-radius': '40px',
-  //   //         bottom: '16px',
-  //   //         right: '16px',
-  //   //       })
-  //   //     ),
-  //   //   ],
-  //   //   {
-  //   //     optional: true,
-  //   //   }
-  //   // ),
-  //   group([
-  //     query(':leave', [animate('1000ms ease-out', style({ opacity: 0.0 }))], {
-  //       optional: true,
-  //     }),
-  //     query(':enter', [animate('1000ms ease-out', style({ opacity: 1.0 }))], {
-  //       optional: true,
-  //     }),
-  //   ]),
-  // ]),
   transition('start => character-picker', [
     style({ position: 'relative' }),
     query(':enter, :leave', [
@@ -176,7 +125,7 @@ export const slideInAnimation = trigger('routeAnimations', [
       ),
     ]),
   ]),
-  transition('character-picker => start, game => character-picker', [
+  transition('character-picker => start', [
     style({ position: 'relative' }),
     query(':enter, :leave', [
       style({
@@ -197,32 +146,32 @@ export const slideInAnimation = trigger('routeAnimations', [
       }),
     ]),
   ]),
-  // transition('* <=> *', [
-  //   style({ position: 'relative' }),
-  //   query(
-  //     ':enter, :leave',
-  //     [
-  //       style({
-  //         position: 'absolute',
-  //         top: 0,
-  //         left: 0,
-  //         width: '100%',
-  //       }),
-  //     ],
-  //     { optional: true }
-  //   ),
-  //   query(':enter', [style({ left: '-100%' })], { optional: true }),
-  //   query(':leave', animateChild(), { optional: true }),
-  //   group([
-  //     query(
-  //       ':leave',
-  //       [animate('200ms ease-out', style({ left: '100%', opacity: 0 }))],
-  //       { optional: true }
-  //     ),
-  //     query(':enter', [animate('300ms ease-out', style({ left: '0%' }))], {
-  //       optional: true,
-  //     }),
-  //     query('@*', animateChild(), { optional: true }),
-  //   ]),
-  // ]),
+  transition('* <=> *', [
+    style({ position: 'relative' }),
+    query(
+      ':enter, :leave',
+      [
+        style({
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          opacity: 1.0,
+        }),
+      ],
+      { optional: true }
+    ),
+    query(':enter', [style({ overflow: 'hidden', opacity: 0.0 })], {
+      optional: true,
+    }),
+    query(':leave', animateChild(), { optional: true }),
+    group([
+      query(':leave', [animate('300ms ease-out', style({ opacity: 0.0 }))], {
+        optional: true,
+      }),
+      query(':enter', [animate('300ms ease-out', style({ opacity: 1.0 }))], {
+        optional: true,
+      }),
+    ]),
+  ]),
 ]);

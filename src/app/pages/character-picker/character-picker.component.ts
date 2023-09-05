@@ -56,11 +56,9 @@ export class CharacterPickerComponent implements OnInit {
     } else {
       duration = 180 + 60 * (count % 15);
     }
-    console.log(count, duration < 180 ? 180 : duration);
 
     this.animation = this.card.nativeElement.animate(rotate, {
       duration: duration < 180 ? 180 : duration,
-      // easing: 'ease-in-out',
       iterations: 1,
     });
 
@@ -85,13 +83,11 @@ export class CharacterPickerComponent implements OnInit {
       shapes: ['square'],
       particleCount: 200,
       startVelocity: 30,
-      ticks: 2,
       spread: 120,
     })?.then(() => {
       this.chosen = this.front;
       this.characterService.setChosenCharacter(this.chosen);
       this.container.nativeElement.classList.add('go-up-animation');
-      console.log(this.label);
       this.label.nativeElement.classList.remove('hidden');
     });
   }

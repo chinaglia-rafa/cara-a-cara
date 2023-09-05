@@ -75,7 +75,11 @@ export class CharactersService {
       descartado: false,
     },
   ];
-  constructor() {}
+  constructor() {
+    this.chosenCharacter = JSON.parse(
+      localStorage.getItem('chosen-character') || '{}'
+    );
+  }
 
   getRandomCharacter(): Character {
     return this.characters[Math.floor(Math.random() * this.characters.length)];
@@ -83,9 +87,13 @@ export class CharactersService {
 
   setChosenCharacter(c: Character): void {
     this.chosenCharacter = c;
+    localStorage.setItem(
+      'chosen-character',
+      JSON.stringify(this.chosenCharacter)
+    );
   }
 
-  getChosenCharacter(): Character {
-    return this.chosenCharacter;
+  getChosenCharacter(): Character | null {
+    return this.chosenCharacter || null;
   }
 }
