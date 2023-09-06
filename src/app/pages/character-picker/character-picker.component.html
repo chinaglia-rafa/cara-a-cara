@@ -23,8 +23,14 @@
     *ngIf="front && back"
   >
     <div #cardElement class="card" (click)="cancel()">
-      <div class="front" [style.backgroundImage]="front.imagem"></div>
-      <div class="back" [style.backgroundImage]="back.imagem"></div>
+      <div
+        class="front"
+        [style.background-image]="'url(\'' + front.imagem + '\')'"
+      ></div>
+      <div
+        class="back"
+        [style.background-image]="'url(\'' + back.imagem + '\')'"
+      ></div>
     </div>
   </div>
   <h2 #labelElement class="on-surface-text hidden">

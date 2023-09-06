@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CharactersService } from 'src/app/services/characters/characters.service';
 
 @Component({
   selector: 'app-start',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class StartComponent implements OnInit {
   theme = true;
 
-  constructor() {}
+  constructor(private charactersService: CharactersService) {}
 
   ngOnInit(): void {}
 }
