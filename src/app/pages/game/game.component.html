@@ -8,6 +8,14 @@
   </m3-button>
   <app-dark-theme-toggle></app-dark-theme-toggle>
 </div>
+<div class="image-gallery">
+  <image-display
+    [width]="180 - 8"
+    [height]="219"
+    [src]="character.imagem"
+    *ngFor="let character of charactersService.getCharacters()"
+  ></image-display>
+</div>
 <div
   class="floating-image"
   [style.background-image]="

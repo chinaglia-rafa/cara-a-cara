@@ -1,12 +1,29 @@
 <div
-  class="image"
+  (touchstart)="mousedown($event)"
+  (touchend)="mouseup(null)"
+  (touchmove)="mouseup($event)"
+  (mousedown)="mousedown(null)"
+  (mouseup)="mouseup(null)"
+  (dblclick)="dblclick()"
+  (mouseleave)="mouseup(null)"
+  (contextmenu)="$event.preventDefault()"
+  (keyup)="keyup($event)"
+  class="flippable"
+  [class.flipped]="isFlipped"
   [style.width]="width > 0 ? width + 'px' : null"
   [style.height]="height > 0 ? height + 'px' : null"
+  tabindex="0"
 >
-  <img
-    [src]="src"
-    [attr.width]="width > 0 ? width : null"
-    [attr.height]="height > 0 ? height : null"
-    [alt]="label"
-  />
+  <div #card class="card">
+    <div
+      class="front"
+      [style.transition-duration]="millisecondToActivate * 1.25 + 'ms'"
+      [style.background-image]="'url(\'' + src + '\')'"
+    ></div>
+    <div
+      class="back"
+      [style.transition-duration]="millisecondToActivate * 1.25 + 'ms'"
+      [style.background-image]="'url(\'' + src + '\')'"
+    ></div>
+  </div>
 </div>

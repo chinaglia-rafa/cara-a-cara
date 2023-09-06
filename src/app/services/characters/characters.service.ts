@@ -454,6 +454,10 @@ export class CharactersService {
     return this.chosenCharacter || null;
   }
 
+  getCharacters(): Character[] {
+    return this.characters;
+  }
+
   loadImages(): void {
     for (let i = 0; i < this.characters.length; i++) {
       let img = new Image();
