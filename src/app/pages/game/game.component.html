@@ -13,6 +13,7 @@
     [width]="180 - 8"
     [height]="219"
     [src]="character.imagem"
+    [label]="character.label"
     *ngFor="let character of charactersService.getCharacters()"
   ></image-display>
 </div>

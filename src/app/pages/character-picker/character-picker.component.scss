@@ -8,7 +8,7 @@
   gap: 32px;
   overflow: hidden;
   position: relative;
-  --top-offset: calc(161px + 285px);
+  --top-offset: calc(161px + 285px + 20px);
   --right-offset: calc(calc(100vw - 234px) / 2);
 }
 

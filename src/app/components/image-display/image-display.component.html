@@ -3,10 +3,10 @@
   (touchend)="mouseup(null)"
   (touchmove)="mouseup($event)"
   (mousedown)="mousedown(null)"
+  (contextmenu)="$event.stopPropagation(); $event.preventDefault()"
   (mouseup)="mouseup(null)"
   (dblclick)="dblclick()"
   (mouseleave)="mouseup(null)"
-  (contextmenu)="$event.preventDefault()"
   (keyup)="keyup($event)"
   class="flippable"
   [class.flipped]="isFlipped"
@@ -19,11 +19,19 @@
       class="front"
       [style.transition-duration]="millisecondToActivate * 1.25 + 'ms'"
       [style.background-image]="'url(\'' + src + '\')'"
-    ></div>
+    >
+      <div class="card__label">
+        {{ label }}
+      </div>
+    </div>
     <div
       class="back"
       [style.transition-duration]="millisecondToActivate * 1.25 + 'ms'"
       [style.background-image]="'url(\'' + src + '\')'"
-    ></div>
+    >
+      <div class="card__label">
+        {{ label }}
+      </div>
+    </div>
   </div>
 </div>

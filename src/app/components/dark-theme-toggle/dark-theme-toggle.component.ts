@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LightDarkThemeService } from 'src/app/services/light-dark-theme/light-dark-theme.service';
 
 @Component({
   selector: 'app-dark-theme-toggle',
@@ -8,10 +9,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DarkThemeToggleComponent implements OnInit {
   @Input('checked') checked = false;
 
-  constructor() {}
+  constructor(private lightDarkTheme: LightDarkThemeService) {}
 
   ngOnInit(): void {
-    this.loadTheme();
+    this.checked = this.lightDarkTheme.getIsDark();
 
     document.documentElement.setAttribute(
       'data-theme',
@@ -20,19 +21,6 @@ export class DarkThemeToggleComponent implements OnInit {
   }
 
   toggle(): void {
-    this.checked = !this.checked;
-    document.documentElement.setAttribute(
-      'data-theme',
-      this.checked ? 'dark' : 'light'
-    );
-    this.saveTheme(this.checked);
-  }
-
-  loadTheme(): void {
-    this.checked = localStorage.getItem('theme') === 'true';
-  }
-
-  saveTheme(state: boolean): void {
-    localStorage.setItem('theme', state ? 'true' : 'false');
+    this.checked = this.lightDarkTheme.toggle();
   }
 }

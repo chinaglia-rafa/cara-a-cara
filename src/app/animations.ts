@@ -23,7 +23,12 @@ export const slideInAnimation = trigger('routeAnimations', [
       ]),
       query(
         '#transition-target',
-        [style({ bottom: 'calc(100vh - calc(161px + 285px))', 'z-index': 3 })],
+        [
+          style({
+            bottom: 'calc(100vh - calc(161px + 285px + 20px))',
+            'z-index': 3,
+          }),
+        ],
         {
           optional: true,
         }

@@ -1,4 +1,8 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { CustomColors, Theme } from 'src/app/models/colors.model';
+import 'material-dynamic-colors';
+import { LightDarkThemeService } from 'src/app/services/light-dark-theme/light-dark-theme.service';
+import { of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'image-display',
@@ -13,14 +17,74 @@ export class ImageDisplayComponent implements OnInit {
 
   @ViewChild('card') card: ElementRef;
   /** Milisegundos que o usuário precisará manter o componente pressionado para ativá-lo */
-  millisecondToActivate = 1000;
+  millisecondToActivate = 600;
   timer: any;
   isFlipped = false;
   touchStartPosition: [number, number] = [0, 0];
+  customColors: CustomColors;
 
-  constructor() {}
+  constructor(
+    private lightDarkTheme: LightDarkThemeService,
+    private hostElement: ElementRef
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.lightDarkTheme.toggle$.subscribe((isDark: boolean) => {
+      this.getCustomColors(isDark).then((theme: Theme) => {
+        console.log(theme);
+        this.setCssVariables(theme);
+      });
+    });
+  }
+
+  async getCustomColors(isDark: boolean): Promise<Theme> {
+    if (this.customColors !== undefined)
+      return isDark ? this.customColors.dark : this.customColors.light;
+
+    this.customColors = await (window as any).materialDynamicColors(this.src);
+
+    return isDark ? this.customColors.dark : this.customColors.light;
+  }
+
+  private setCssVariables(theme: Theme): void {
+    const tokens = [
+      'primary',
+      'onPrimary',
+      'primaryContainer',
+      'onPrimaryContainer',
+      'secondary',
+      'onSecondary',
+      'secondaryContainer',
+      'onSecondaryContainer',
+      'tertiary',
+      'onTertiary',
+      'tertiaryContainer',
+      'onTertiaryContainer',
+      'error',
+      'onError',
+      'errorContainer',
+      'onErrorContainer',
+      'background',
+      'onBackground',
+      'surface',
+      'onSurface',
+      'surfaceVariant',
+      'onSurfaceVariant',
+      'outline',
+      'outlineVariant',
+      'shadow',
+      'scrim',
+      'inverseSurface',
+      'inverseOnSurface',
+      'inversePrimary',
+    ];
+    for (let token of tokens) {
+      this.hostElement.nativeElement.style.setProperty(
+        '--custom-color-' + token,
+        theme[token as keyof typeof theme] // ÉOQ? AHUAHUHUAHUA
+      );
+    }
+  }
 
   mousedown(event: TouchEvent | null): void {
     // console.log('trying to activate');

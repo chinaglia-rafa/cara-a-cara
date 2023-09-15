@@ -357,6 +357,58 @@ export class CharactersService {
         gender: 'non-binary',
       },
     },
+    {
+      imagem: './assets/characters/marta.jpg',
+      label: 'Benny Dugmore',
+      descartado: false,
+      properties: {
+        'hair-color': 'Teal',
+        'eyes-color': 'Crimson',
+        profession: 'Quality Control Specialist',
+        nationality: 'Equatorial Guinea',
+        age: '61',
+        gender: 'non-binary',
+      },
+    },
+    {
+      imagem: './assets/characters/abel.jpg',
+      label: 'Benny Dugmore',
+      descartado: false,
+      properties: {
+        'hair-color': 'Teal',
+        'eyes-color': 'Crimson',
+        profession: 'Quality Control Specialist',
+        nationality: 'Equatorial Guinea',
+        age: '61',
+        gender: 'non-binary',
+      },
+    },
+    {
+      imagem: './assets/characters/miley.jpg',
+      label: 'Benny Dugmore',
+      descartado: false,
+      properties: {
+        'hair-color': 'Teal',
+        'eyes-color': 'Crimson',
+        profession: 'Quality Control Specialist',
+        nationality: 'Equatorial Guinea',
+        age: '61',
+        gender: 'non-binary',
+      },
+    },
+    {
+      imagem: './assets/characters/timotio.jpg',
+      label: 'Benny Dugmore',
+      descartado: false,
+      properties: {
+        'hair-color': 'Teal',
+        'eyes-color': 'Crimson',
+        profession: 'Quality Control Specialist',
+        nationality: 'Equatorial Guinea',
+        age: '61',
+        gender: 'non-binary',
+      },
+    },
   ];
   // [
   //   {

@@ -27,6 +27,13 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
 }
 
 .image-gallery {
@@ -34,6 +41,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+
+  // padding-top: 56px;
 
   image-display {
     margin: 4px;

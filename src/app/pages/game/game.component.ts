@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CharactersService } from 'src/app/services/characters/characters.service';
 
 @Component({

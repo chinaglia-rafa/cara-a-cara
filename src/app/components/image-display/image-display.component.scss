@@ -38,12 +38,42 @@
       transform: rotateY(180deg);
       filter: saturate(0) contrast(0.5) brightness(1.2) opacity(0.5);
     }
+
+    .card__label {
+      position: absolute;
+      bottom: -10px;
+      left: 0px;
+      padding: 8px;
+      opacity: 0.0;
+
+      max-width: 90%;
+
+      background-color: var(--custom-color-primary);
+      color: var(--custom-color-onPrimary);
+      border-top-right-radius: 8px;
+      white-space: nowrap;
+      box-sizing: border-box;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      user-select: none;
+      transition: all 200ms var(--easing-standard);
+    }
   }
 
   &:focus {
     .card {
       .front, .back {
-        border-color: var(--md-sys-color-on-background);
+        border-color: var(--custom-color-primary);
+      }
+    }
+  }
+
+  &:focus {
+    .card {
+      .card__label {
+        opacity: 1.0;
+        bottom: 0px;
       }
     }
   }
